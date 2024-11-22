@@ -24,8 +24,8 @@ jobs:
           "git diff --name-only HEAD"
           git diff --name-only HEAD
           $br
-          "git diff --name-only HEAD^ -- HEAD"
-          git diff --name-only HEAD^ -- HEAD
+          "git diff --name-only HEAD^ HEAD"
+          git diff --name-only HEAD^ HEAD
           $br
           "git diff --name-only -- .github"
           git diff --name-only -- .github
