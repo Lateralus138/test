@@ -11,7 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - run: |
+      - name: test
+        shell: pwsh
+        run: |
           $line = '-' * 80; $br = $line + "`n" + $line
           $br
           "git diff --name-only"
