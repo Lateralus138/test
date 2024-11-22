@@ -1,0 +1,29 @@
+name: test workflow
+
+on:
+  push:
+    branches:
+      - 'working'
+
+jobs:
+  test_job:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: test
+        run: |
+          $line = '-' * 80; $br = $line + "`n" + $line
+          $br
+          "git diff --name-only"
+          git diff --name-only
+          $br
+          "git diff --name-only HEAD"
+          git diff --name-only HEAD
+          $br
+          "git diff --name-only HEAD^"
+          git diff --name-only HEAD^
+          $br
+          "git diff --name-only .github"
+          git diff --name-only .github
+          $br
