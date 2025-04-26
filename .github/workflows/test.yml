@@ -14,12 +14,17 @@ jobs:
       - name: test
         shell: pwsh
         run: |
-          $line = '-' * 80; $br = $line + "`n" + $line
+          $line = '-' * workingu80; $br = $line + "`n" + $line
           $br
           git config --global user.name "Lateralus138"
           git config --global user.email "faithnomoread@yahoo.com"
-          git merge  --no-commit --no-ff working
+          git checkout working
+          [DateTime]::UtcNow.ToString('u').Replace('Z', ' UTC') | Out-File -FilePath ".merge_history"
           git add .
-          git commit -m "Merge working into master"
-          git push origin master --force    
+          git commit -m "Updated .merge_history."
+          git push origin working
+          git checkout master
+          git merge working
+          git add .
+          git push origin master
           $br
