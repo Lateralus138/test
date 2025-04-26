@@ -13,10 +13,11 @@ jobs:
         shell: pwsh
         run: |
           $line = '-' * 80; $br = $line + "`n" + $line
+          $git_url = "${{ github.server_url }}/${{ github.repository }}"
           $br
           git config --global user.name "Lateralus138"
           git config --global user.email "faithnomoread@yahoo.com"
-          git clone "${{ github.server_url }}/${{ github.repository }}.git"
+          git clone $git_url
           $br
           git rev-parse --abbrev-ref HEAD
           $br
