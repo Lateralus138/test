@@ -9,21 +9,20 @@ jobs:
   test_job:
     runs-on: windows-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: test
+        shell: pwsh
         run: |
           $line = '-' * 80; $br = $line + "`n" + $line
           $br
-          "git diff --name-only"
-          git diff --name-only
+          git config --global user.name "Lateralus138"
+          git config --global user.email "faithnomoread@yahoo.com"
+          git clone "${{ github.server_url }}/${{ github.repository }}.git"
           $br
-          "git diff --name-only HEAD"
-          git diff --name-only HEAD
+          git rev-parse --abbrev-ref HEAD
           $br
-          "git diff --name-only HEAD^ HEAD"
-          git diff --name-only HEAD^ HEAD
+          git checkout working
+          git rev-parse --abbrev-ref HEAD
           $br
-          "git diff --name-only .github"
-          git diff --name-only .github
+          git checkout master
+          git rev-parse --abbrev-ref HEAD
           $br
