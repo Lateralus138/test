@@ -14,7 +14,7 @@ jobs:
       - name: test
         shell: pwsh
         run: |
-          $line = '-' * workingu80; $br = $line + "`n" + $line
+          $line = '-' * 80; $br = $line + "`n" + $line
           $br
           git config --global user.name "Lateralus138"
           git config --global user.email "faithnomoread@yahoo.com"
