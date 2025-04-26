@@ -19,6 +19,8 @@ jobs:
           git config --global user.email "faithnomoread@yahoo.com"
           git clone $git_url
           $br
+          cd test
+          $br
           git rev-parse --abbrev-ref HEAD
           $br
           git checkout working
