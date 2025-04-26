@@ -9,23 +9,17 @@ jobs:
   test_job:
     runs-on: windows-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: test
         shell: pwsh
         run: |
           $line = '-' * 80; $br = $line + "`n" + $line
-          $git_url = "${{ github.server_url }}/${{ github.repository }}"
           $br
           git config --global user.name "Lateralus138"
           git config --global user.email "faithnomoread@yahoo.com"
-          git clone $git_url
-          $br
-          cd test
-          $br
-          git rev-parse --abbrev-ref HEAD
-          $br
-          git checkout working
-          git rev-parse --abbrev-ref HEAD
-          $br
-          git checkout master
-          git rev-parse --abbrev-ref HEAD
+          git merge  --no-commit --no-ff working
+          git add .
+          git commit -m "Merge working into master"
+          git push origin master --force    
           $br
