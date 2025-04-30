@@ -1,0 +1,20 @@
+name: Main Build
+on:
+  push:
+    paths:
+      - '**.cpp'
+      - '**.h'
+      - '**.sln'
+      - '**.yml'
+      - '**.ps1'
+jobs:
+  test2:
+    runs-on: windows-latest
+    steps:
+      - name: test2
+        shell: pwsh
+        run: |
+          Get-ChildItem .\test\ -Recurse -File |
+            Where-Object {
+              $_.Length -eq 0
+            }
