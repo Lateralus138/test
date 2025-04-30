@@ -15,7 +15,4 @@ jobs:
       - name: test2
         shell: pwsh
         run: |
-          Get-ChildItem .\test2 -Recurse -File |
-            Where-Object {
-              $_.Length -gt 0
-            }
+          Get-ChildItem .\test2 -Recurse -File | Where-Object { $_.Length -gt 0 }
