@@ -6,8 +6,8 @@ on:
       - '**.h'
       - '**.sln'
       - '**.yml'
-      - '**.ps1'
-      - '**.txt'
+      - '**.pwsh'
+      - 'test2/**.txt'
 jobs:
   test2:
     runs-on: windows-latest
