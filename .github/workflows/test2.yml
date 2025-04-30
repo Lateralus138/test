@@ -12,6 +12,8 @@ jobs:
   test2:
     runs-on: windows-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: test2
         shell: pwsh
         run: |
