@@ -16,5 +16,5 @@ jobs:
         run: |
           Get-ChildItem .\test -Recurse -File |
             Where-Object {
-              $_.Length -eq 0
+              $_.Length -gt 0
             }
